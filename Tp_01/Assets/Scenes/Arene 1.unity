@@ -4690,6 +4690,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 329615512}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &333485137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7988006651242002723, guid: f89474db0020f344594c3ad10a23b21b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7988006652382588697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &333485138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333485137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5193339fbeb4dcf49a2aebbcacd44208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnZones:
+  - {fileID: 2080642619}
+  - {fileID: 929050270}
+  - {fileID: 1533744042}
+  - {fileID: 298285584}
+  - {fileID: 1277991612}
+  enemies:
+  - {fileID: 919132149155446097, guid: a45d9f60e686dcf4bbd821a09bce854d, type: 3}
+  - {fileID: 919132149155446097, guid: 67477098c4161254aa16ba25a583941a, type: 3}
+  - {fileID: 919132149155446097, guid: 48c4bea778bff494483499bf33488c41, type: 3}
+  - {fileID: 919132149155446097, guid: 6dac7fb89841fc048aedf9c930ee3bc0, type: 3}
+--- !u!114 &333485139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333485137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe12e9f03bbc3c4b91101963b0e70dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  troupFactory: {fileID: 333485138}
+  SpawnDelay: 0.5
 --- !u!1001 &333708438
 PrefabInstance:
   m_ObjectHideFlags: 0
