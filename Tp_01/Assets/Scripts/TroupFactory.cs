@@ -10,17 +10,22 @@ public class TroupFactory:MonoBehaviour
 
     void Update()
     {
-        index = Random.Range(0, spawnZones.Length);
+        /* index = Random.Range(0, spawnZones.Length);
         selectedSpawn = spawnZones[index];
         index2 = Random.Range(0, enemies.Length);
         enemy = enemies[index2];
-        Debug.Log(enemy);
+        Debug.Log(enemy); */
 
     }
 
     public void SpawnTroup()
     {
+        index = Random.Range(0, spawnZones.Length);
+        selectedSpawn = spawnZones[index];
+        index2 = Random.Range(0, enemies.Length);
+        enemy = enemies[index2];
+
         Instantiate(enemy, selectedSpawn.position, selectedSpawn.rotation);
-        Debug.Log("test");
+        //Debug.Log("test");
     }
 }
