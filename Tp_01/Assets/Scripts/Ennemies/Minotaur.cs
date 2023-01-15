@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIController : MonoBehaviour
+public class Minotaur : MonoBehaviour
 {
     // Start is called before the first frame update
+    private float health = 20f;
+    private float countdown = 1f;
+    private float speed = 3f;
+    private float damage = 10f;
+
     [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Animator animator;
@@ -15,11 +20,12 @@ public class AIController : MonoBehaviour
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        navMeshAgent.speed = speed;
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) > 4f && Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
+        if (Vector3.Distance(transform.position, player.transform.position) > 2f && Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
         {
              navMeshAgent.isStopped = false;
              navMeshAgent.SetDestination(player.transform.position);
@@ -39,7 +45,7 @@ public class AIController : MonoBehaviour
         {
             animator.SetBool("DamageTaken", true);
         }
-        if (Vector3.Distance(transform.position, player.transform.position) < 5f)
+        if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
             animator.SetBool("isPunching", true);
             animator.SetBool("isWalking", false);
