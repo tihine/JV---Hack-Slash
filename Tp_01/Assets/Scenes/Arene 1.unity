@@ -29191,6 +29191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkelWarrior Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564872, guid: f8a4313328fd14b64ac8a169bb496105,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6306085063620564873, guid: f8a4313328fd14b64ac8a169bb496105,
         type: 3}
       propertyPath: m_RootOrder
