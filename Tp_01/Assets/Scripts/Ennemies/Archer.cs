@@ -26,6 +26,10 @@ public class Archer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //look at the player
+        if (Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
+        {
+            transform.LookAt(player.transform);
+        }
     }
 }

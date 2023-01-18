@@ -15,6 +15,7 @@ public class Knight : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Animator animator;
     [SerializeField] private float vision;
+    [SerializeField] GameObject sphere;
     private bool isAlive = true;
     void Start()
     {
@@ -25,6 +26,15 @@ public class Knight : MonoBehaviour
 
     void Update()
     {
+
+        //look at the player
+        if (Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
+        {
+            transform.LookAt(player.transform);
+        }
+        
+
+
         if (Vector3.Distance(transform.position, player.transform.position) > 3f && Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
         {
             navMeshAgent.isStopped = false;
@@ -57,6 +67,23 @@ public class Knight : MonoBehaviour
             isAlive = false;
         }
 
+    }
+
+    //this method is called from the attack animation
+    public void CheckDamageEvent()
+    {
+        //mettre une overlapsed sphere
+        Collider[] hitColliders = Physics.OverlapSphere(sphere.transform.position, 2.5f );
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.tag == "PlayerCollider")
+            {
+                Debug.Log("BAM chevalier");
+            }
+            //hitCollider.SendMessage("AddDamage");
+            
+        }
+        
     }
 }
 
