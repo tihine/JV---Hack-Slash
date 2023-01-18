@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Hero's choice");
     }
 
+    
+
     public void QuitGame()
     {
         Debug.Log("Quit !");
