@@ -9,4 +9,10 @@ public class HeroChoiceMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void PlayGame()
+    {
+        string scene = "Arene "+Random.Range(1, 4);
+        SceneManager.LoadScene(scene);
+    }
 }
