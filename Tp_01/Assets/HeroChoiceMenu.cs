@@ -5,14 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class HeroChoiceMenu : MonoBehaviour
 {
+
     public void BackMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Settings");
     }
 
     public void PlayGame()
     {
-        string scene = "Arene "+Random.Range(1, 4);
+        int nbr_scene = Random.Range(1, 4); 
+        string scene = "Arene "+ nbr_scene;
+        Debug.Log(scene);
         SceneManager.LoadScene(scene);
     }
 }
