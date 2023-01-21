@@ -7,7 +7,7 @@ public class Liche : MonoBehaviour
 {
     // Start is called before the first frame update
     private float health = 15f;
-    private float countdown = 10f;
+    private float cooldown = 10f;
     private float speed = 2f;
 
     [SerializeField] private GameObject player;
