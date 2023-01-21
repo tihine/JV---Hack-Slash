@@ -32,4 +32,12 @@ public class Archer : MonoBehaviour
             transform.LookAt(player.transform);
         }
     }
+
+    public void Shoot()
+    {
+        // nombre aléatoire de flèches entre 1 et 5
+        // faire spawn une fléche avec une vitesse vers le joueur
+        Debug.Log("Shoot");
+
+    }
 }
