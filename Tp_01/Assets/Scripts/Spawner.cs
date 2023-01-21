@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     private float timer =0f;
     private float wave_pause_timer = 0f;
     int current_wave = 1;
+    public TMPro.TMP_Text waveText;
 
     /*int last_enemies = 0;
     int last2_enemies = 0;
@@ -28,6 +29,7 @@ public class Spawner : MonoBehaviour
     {
         //    StartCoroutine(waveSpawner());
         wave_max_number = wavebefore_maxnumber + wave2before_maxnumber;
+        DisplayWave(current_wave.ToString());
     }
     private void Update()
     {
@@ -51,6 +53,7 @@ public class Spawner : MonoBehaviour
                 if (wave_pause_timer > waveDelay) // pause entre les vagues
                 {
                     current_wave++;
+                    DisplayWave(current_wave.ToString());
                     wave2before_maxnumber = wavebefore_maxnumber;
                     wavebefore_maxnumber = wave_max_number;
                     wave_max_number = wavebefore_maxnumber + wave2before_maxnumber;
@@ -82,6 +85,11 @@ public class Spawner : MonoBehaviour
             current_wave += 1;
         }
         */
+    }
+
+    void DisplayWave(string waveToDisplay)
+    {
+        waveText.text = waveToDisplay;
     }
 }
 
