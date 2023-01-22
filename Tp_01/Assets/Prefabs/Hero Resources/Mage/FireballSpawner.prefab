@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5934190055076981687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37da3bb7dc8954d5d8cdc35865ab6eb2, type: 3}
+  m_Script: {fileID: 11500000, guid: e05ccf74c6576ac4287d165db77dabc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 1725317912486240, guid: e55149ba6f4d00741984987e258c3378,

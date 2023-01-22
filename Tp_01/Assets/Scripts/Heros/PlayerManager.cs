@@ -32,6 +32,7 @@ public abstract class PlayerManager : MonoBehaviour
     protected Vector3 rbVel;
     protected Camera cam;
     protected Vector3 orientRefPt;
+    protected Vector3 attackDir;
 
     
     // Start is called before the first frame update
@@ -91,6 +92,7 @@ public abstract class PlayerManager : MonoBehaviour
     protected void Orient()
     {
         transform.LookAt(orientRefPt);
+        attackDir = (orientRefPt - transform.position).normalized;
     }
     
     protected void Move()
@@ -127,6 +129,11 @@ public abstract class PlayerManager : MonoBehaviour
     }
     
     //Action methods
+
+    public Vector3 GetAttackDir()
+    {
+        return attackDir;
+    }
     protected IEnumerator ActionSeq1()
     {
         Action1();

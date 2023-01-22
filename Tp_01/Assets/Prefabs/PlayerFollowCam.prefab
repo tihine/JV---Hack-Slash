@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5065174908103695241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c66354c456e4d0ea840fe651d55f00, type: 3}
+  m_Script: {fileID: 11500000, guid: 72270ed814b0fc54da0a0172e750c20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5065174908103695240
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 40, z: -10}
+  m_FollowOffset: {x: 0, y: 60, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1

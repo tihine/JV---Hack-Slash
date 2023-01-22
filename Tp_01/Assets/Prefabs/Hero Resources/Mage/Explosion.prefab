@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4104803319356178}
   - component: {fileID: 198559278997166938}
   - component: {fileID: 199910722625497008}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   - component: {fileID: 4797663771675332}
   - component: {fileID: 198426081105753050}
   - component: {fileID: 199424197360268280}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9633,7 +9633,7 @@ GameObject:
   - component: {fileID: 4475254030089770}
   - component: {fileID: 198794646228705736}
   - component: {fileID: 199687417593117910}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14444,7 +14444,7 @@ GameObject:
   - component: {fileID: 4563802948693442}
   - component: {fileID: 198357973136645638}
   - component: {fileID: 199550515350852312}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14460,7 +14460,7 @@ Transform:
   m_GameObject: {fileID: 1845955007268882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4767422519396350}
   - {fileID: 4475254030089770}
@@ -19268,7 +19268,7 @@ GameObject:
   - component: {fileID: 4767422519396350}
   - component: {fileID: 198320247807911846}
   - component: {fileID: 199385802554314066}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}

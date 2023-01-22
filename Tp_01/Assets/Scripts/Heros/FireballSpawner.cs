@@ -15,7 +15,7 @@ public class FireballSpawner : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         mageMgr = player.GetComponent<MageManager>();
-        mageMgr.OnMakeFireball.AddListener(ShootFireball);
+        mageMgr.OnShootFireball.AddListener(ShootFireball);
         animator = player.GetComponent<Animator>();
     }
 
@@ -28,6 +28,5 @@ public class FireballSpawner : MonoBehaviour
     void ShootFireball()
     {
         Instantiate(fireballPrefab, transform);
-        animator.SetBool("Fireball", true);
     }
 }

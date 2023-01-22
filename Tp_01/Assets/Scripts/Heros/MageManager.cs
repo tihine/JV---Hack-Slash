@@ -9,11 +9,14 @@ public class FireballEvent : UnityEvent
 
 public class MageManager : PlayerManager
 {
-    public FireballEvent OnMakeFireball = new FireballEvent();
+    public FireballEvent OnShootFireball = new FireballEvent();
     // Start is called before the first frame update
     private new void Start()
     {
         maxHealth = 40;
+        cooldown1 = 2f;
+        cooldown2 = 10f;
+        cooldown3 = 10f;
         base.Start();
     }
 
@@ -25,7 +28,14 @@ public class MageManager : PlayerManager
 
     protected override void Action1()
     {
-        OnMakeFireball?.Invoke();
+        //Start fireball sequence:
+        animator.SetBool("Fireball", true);
+    }
+
+    //Fireball generation triggered by animation event:
+    void PlayerReleaseFireball()
+    {
+        OnShootFireball?.Invoke();
     }
 
     protected override void Action2()

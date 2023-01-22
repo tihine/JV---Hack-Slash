@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4410241804940320}
   - component: {fileID: 198121823610078880}
   - component: {fileID: 199338329820519516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4764,7 +4764,7 @@ GameObject:
   - component: {fileID: 4857446216290978}
   - component: {fileID: 198938839109166378}
   - component: {fileID: 199173897474711878}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9517,7 +9517,7 @@ GameObject:
   - component: {fileID: 4404365773844742}
   - component: {fileID: 198449976809265600}
   - component: {fileID: 199218580650235198}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14270,7 +14270,7 @@ GameObject:
   - component: {fileID: 4927245751746350}
   - component: {fileID: 198439384557487006}
   - component: {fileID: 199526426274550578}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19026,7 +19026,7 @@ GameObject:
   - component: {fileID: 8535918555656396907}
   - component: {fileID: 6716981580707921821}
   - component: {fileID: 6397709718617588444}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Magic fire pro orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23794,7 +23794,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1725317912486240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4f14400f630421baf302b099ea67fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 001054488ba9c88439c9b9d4a0c6aa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c,
@@ -23813,5 +23813,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
