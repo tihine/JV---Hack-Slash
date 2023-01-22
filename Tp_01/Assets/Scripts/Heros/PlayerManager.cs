@@ -33,6 +33,7 @@ public abstract class PlayerManager : MonoBehaviour
     protected Camera cam;
     protected Vector3 orientRefPt;
     protected Vector3 attackDir;
+    public HealthBar healthbar;
 
     
     // Start is called before the first frame update
@@ -43,6 +44,7 @@ public abstract class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
         health = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -122,6 +124,7 @@ public abstract class PlayerManager : MonoBehaviour
     public void AddDamage(int damage) //TODO change back to "PROTECTED" later!!!
     {
         health -= damage;
+        healthbar.SetHealth(health);
         if (health <= 0)
         {
             //TODO Invoke DeathEvent/GameOverEvent (to be coded)
