@@ -16,6 +16,7 @@ public class HeroChoiceMenu : MonoBehaviour
         int nbr_scene = Random.Range(1, 4); 
         string scene = "Arene "+ nbr_scene;
         Debug.Log(scene);
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadSceneAsync(scene);
+        SceneManager.LoadSceneAsync("UIGame", LoadSceneMode.Additive);
     }
 }
