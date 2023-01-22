@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FireballEvent : UnityEvent
+public class MageEvent : UnityEvent
 {
 }
 
 public class MageManager : PlayerManager
 {
-    public FireballEvent OnShootFireball = new FireballEvent();
+    public MageEvent OnShootFireball = new MageEvent();
+    public MageEvent OnSummonOrb = new MageEvent();
+    public MageEvent OnRaiseWall = new MageEvent();
+    
     // Start is called before the first frame update
     private new void Start()
     {
@@ -40,11 +43,21 @@ public class MageManager : PlayerManager
 
     protected override void Action2()
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("Orb", true);
+    }
+
+    void PlayerReleaseOrb()
+    {
+        OnSummonOrb?.Invoke();
     }
 
     protected override void Action3()
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("Wall", true);
+    }
+    
+    void PlayerRaiseWall()
+    {
+        OnRaiseWall?.Invoke();
     }
 }

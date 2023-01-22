@@ -148,7 +148,7 @@ public abstract class PlayerManager : MonoBehaviour
     {
         Action2();
         onCooldown2 = true;
-        yield return new WaitForSeconds(cooldown1);
+        yield return new WaitForSeconds(cooldown2);
         onCooldown2 = false;
     }
 
@@ -158,7 +158,7 @@ public abstract class PlayerManager : MonoBehaviour
     {
         Action3();
         onCooldown3 = true;
-        yield return new WaitForSeconds(cooldown1);
+        yield return new WaitForSeconds(cooldown3);
         onCooldown3 = false;
     }
 
