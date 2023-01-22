@@ -11,37 +11,41 @@ using UnityEngine.Tilemaps;
 
 //TODO Character data for each character
 
-public class PlayerManager : MonoBehaviour
+public abstract class PlayerManager : MonoBehaviour
 {
-    private int health;
-    private int maxHealth;
-    private float cooldown1, cooldown2, cooldown3;
-    private bool onCooldown1, onCooldown2, onCooldown3;
-    private float moveSpeed = 10f;
-    private float horzAxis;
-    private float vertAxis;
+    protected int health;
+    protected int maxHealth;
+    protected float cooldown1, cooldown2, cooldown3;
+    protected bool onCooldown1, onCooldown2, onCooldown3;
+    protected float moveSpeed = 10f;
+    protected float horzAxis;
+    protected float vertAxis;
     
-    private int maxUpgradeCount = 10;
-    private int[] univUpgradeCounters = new int[5];
-    private int[] specUpgradeCounters = new int[5];
-    private Dictionary<string, string>[] univUpgrades = new Dictionary<string, string>[5];
-    private Dictionary<string, string>[] specUpgrades = new Dictionary<string, string>[5];
+    protected int maxUpgradeCount = 10;
+    protected int[] univUpgradeCounters = new int[5];
+    protected int[] specUpgradeCounters = new int[5];
+    protected Dictionary<string, string>[] univUpgrades = new Dictionary<string, string>[5];
+    protected Dictionary<string, string>[] specUpgrades = new Dictionary<string, string>[5];
 
-    private Rigidbody rb;
-    private Vector3 rbVel;
-    private Camera cam;
-    private Vector3 orientRefPt;
+    protected Animator animator;
+    protected Rigidbody rb;
+    protected Vector3 rbVel;
+    protected Camera cam;
+    protected Vector3 orientRefPt;
 
     
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
+        //Character-specific initialisation goes here
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
+        health = maxHealth;
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         UpdateOrientation();
         SetMvmtAxes();
@@ -59,7 +63,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         Orient();
         Move();
@@ -68,7 +72,7 @@ public class PlayerManager : MonoBehaviour
     
     
     //Movement controls
-    private void UpdateOrientation()
+    protected void UpdateOrientation()
     {
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -78,18 +82,18 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void SetMvmtAxes()
+    protected void SetMvmtAxes()
     {
         horzAxis = Input.GetAxis("Horizontal");
         vertAxis = Input.GetAxis("Vertical");
     }
     
-    private void Orient()
+    protected void Orient()
     {
         transform.LookAt(orientRefPt);
     }
     
-    private void Move()
+    protected void Move()
     {
         rbVel = rb.velocity;
         rbVel.x += horzAxis;
@@ -97,7 +101,7 @@ public class PlayerManager : MonoBehaviour
         rb.velocity = rbVel;
     }
 
-    private void LimitMoveSpeed()
+    protected void LimitMoveSpeed()
     {
         rbVel = rb.velocity;
         if (rbVel.magnitude > moveSpeed)
@@ -105,10 +109,14 @@ public class PlayerManager : MonoBehaviour
             rbVel = moveSpeed * rbVel.normalized;
             rb.velocity = rbVel;
         }
+
+        Vector3 localVel = transform.InverseTransformDirection(rbVel);
+        animator.SetFloat("Strafe", localVel.x / moveSpeed);
+        animator.SetFloat("ForwardSpeed", localVel.z / moveSpeed);
     }
     
     //Action methods
-    private IEnumerator ActionSeq1()
+    protected IEnumerator ActionSeq1()
     {
         Action1();
         onCooldown1 = true;
@@ -116,39 +124,30 @@ public class PlayerManager : MonoBehaviour
         onCooldown1 = false;
     }
 
-    private void Action1()
-    {
-        
-    }
-    
-    private IEnumerator ActionSeq2()
+    protected abstract void Action1();
+
+    protected IEnumerator ActionSeq2()
     {
         Action2();
         onCooldown2 = true;
         yield return new WaitForSeconds(cooldown1);
         onCooldown2 = false;
     }
+
+    protected abstract void Action2();
     
-    private void Action2()
-    {
-        
-    }
-    
-    private IEnumerator ActionSeq3()
+    protected IEnumerator ActionSeq3()
     {
         Action3();
         onCooldown3 = true;
         yield return new WaitForSeconds(cooldown1);
         onCooldown3 = false;
     }
-    
-    private void Action3()
-    {
-        
-    }
-    
+
+    protected abstract void Action3();
+
     //Upgrade methods
-    private void Upgrade(int upgradeNo) //10 upgrades indexed from 0 to 9
+    protected void Upgrade(int upgradeNo) //10 upgrades indexed from 0 to 9
     {
         if (upgradeNo / 5 == 0)
         {
