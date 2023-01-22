@@ -115,6 +115,17 @@ public abstract class PlayerManager : MonoBehaviour
         animator.SetFloat("ForwardSpeed", localVel.z / moveSpeed);
     }
     
+    //Health management
+
+    public void AddDamage(int damage) //TODO change back to "PROTECTED" later!!!
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            //TODO Invoke DeathEvent/GameOverEvent (to be coded)
+        }
+    }
+    
     //Action methods
     protected IEnumerator ActionSeq1()
     {
