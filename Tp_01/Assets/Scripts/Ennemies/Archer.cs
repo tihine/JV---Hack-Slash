@@ -15,6 +15,8 @@ public class Archer : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Animator animator;
     [SerializeField] private float vision;
+    [SerializeField] GameObject arrow;
+    [SerializeField] GameObject arrowStart;
     private bool isAlive = true;
     private bool canShoot = true;
     private bool timeToShoot = false;
@@ -59,7 +61,7 @@ public class Archer : MonoBehaviour
 
         if (canShoot)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) > 10f && Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
+            if (Vector3.Distance(transform.position, player.transform.position) > 20f && Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
             {
                 navMeshAgent.isStopped = false;
                 navMeshAgent.SetDestination(player.transform.position);
@@ -76,7 +78,7 @@ public class Archer : MonoBehaviour
 
             }
 
-            if (Vector3.Distance(transform.position, player.transform.position) < 11f && canShoot && timeToShoot)
+            if (Vector3.Distance(transform.position, player.transform.position) < 20.1f && canShoot && timeToShoot)
             {
                 animator.SetBool("isPunching", true);
                 animator.SetBool("isWalking", false);
@@ -130,7 +132,13 @@ public class Archer : MonoBehaviour
     public void Shoot()
     {
         // nombre aléatoire de flèches entre 1 et 5
+
         // faire spawn une fléche avec une vitesse vers le joueur
+        GameObject shot = Instantiate(arrow, arrowStart.transform.position, new Quaternion(0,-90,0,0));
+        shot.transform.LookAt(new Vector3(player.transform.position.x, shot.transform.position.y,player.transform.position.z));
+        shot.transform.Rotate(new Vector3(90,0,0));
+        Rigidbody rb = shot.GetComponent<Rigidbody>();
+        rb.velocity = shot.transform.up * 20f;
         Debug.Log("Shoot");
 
     }

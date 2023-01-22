@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scripts/Scenes/Settings.unity
     guid: fb2ea166930849a4bbc4e934f1cd0589
   - enabled: 1
-    path: Assets/Scripts/Scenes/Arene 1 - Copie.unity
+    path: Assets/Scenes/Arene 1.unity
     guid: b191b876d8b8c864b9c72805e7304c5f
   m_configObjects: {}
