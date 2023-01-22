@@ -6,10 +6,10 @@ using UnityEngine.AI;
 public class Knight : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float health = 10f;
-    private float countdown = 1f;
+    private int health = 10;
+    //private float countdown = 1f;
     private float speed = 5f;
-    private float damage = 5f;
+    private int damage = 5;
 
     [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent navMeshAgent;
@@ -26,6 +26,12 @@ public class Knight : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive)
+        {
+            animator.SetBool("isDead", true);
+            //fais disparaitre l'ennemi
+            //détruit l'ennemi
+        }
 
         //look at the player
         if (Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
@@ -78,12 +84,28 @@ public class Knight : MonoBehaviour
         {
             if (hitCollider.tag == "PlayerCollider")
             {
-                Debug.Log("BAM chevalier");
+                //Debug.Log("BAM chevalier");
+                //hitCollider.SendMessage("AddDamage", damage);
             }
-            //hitCollider.SendMessage("AddDamage");
+            
             
         }
         
+    }
+    public void AddDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            isAlive = false;
+        }
+    }
+    public void AddLife(int life)
+    {
+        if (health < 10 && isAlive)
+        {
+            health += life;
+        }
     }
 }
 

@@ -21,9 +21,14 @@ public class Arrow : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter(Collision other)
+    /*private void OnCollisionEnter(Collision other)
     {
         //fait des dégats au mec
         Destroy(this.gameObject);
+    }*/
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy (this.gameObject);
+        //other.SendMessage("AddDamage", 3);
     }
 }

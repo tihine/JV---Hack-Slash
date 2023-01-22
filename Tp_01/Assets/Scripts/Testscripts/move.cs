@@ -7,6 +7,8 @@ public class move : MonoBehaviour
     // Start is called before the first frame update
     Rigidbody rb;
     float speed = 2f;
+    public int health = 5;
+    private bool isAlive = true;
 
     void Start()
     {
@@ -16,6 +18,10 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive)
+        {
+            Destroy(gameObject);
+        }
         float h_input = 0;
         float v_input = 0;
        
@@ -41,4 +47,15 @@ public class move : MonoBehaviour
         }
         rb.velocity += new Vector3(h_input,0,v_input).normalized * speed;
     }
+
+    /*
+    public void AddDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            isAlive = false;
+        }
+    }
+    */
 }

@@ -6,10 +6,10 @@ using UnityEngine.AI;
 public class Archer : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float health = 5f;
+    private int health = 5;
     private float cooldown = 5f;
     private float speed = 8f;
-    private float damage = 3f;
+    //private int damage = 3;
 
     [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent navMeshAgent;
@@ -19,7 +19,7 @@ public class Archer : MonoBehaviour
     [SerializeField] GameObject arrowStart;
     private bool isAlive = true;
     private bool canShoot = true;
-    private bool timeToShoot = false;
+    private bool timeToShoot = true;
     private float timer = 0f;
     void Start()
     {
@@ -31,6 +31,12 @@ public class Archer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive)
+        {
+            animator.SetBool("isDead", true);
+            //fais disparaitre l'ennemi
+            //détruit l'ennemi
+        }
         //look at the player
         if (Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
         {
@@ -54,7 +60,7 @@ public class Archer : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > cooldown)
         {
-            Debug.Log("I can shoot");
+            //Debug.Log("I can shoot");
             timeToShoot = true;
             timer = 0f;
         }
@@ -139,7 +145,22 @@ public class Archer : MonoBehaviour
         shot.transform.Rotate(new Vector3(90,0,0));
         Rigidbody rb = shot.GetComponent<Rigidbody>();
         rb.velocity = shot.transform.up * 20f;
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
 
+    }
+    public void AddDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            isAlive = false;
+        }
+    }
+    public void AddLife(int life)
+    {
+        if (health < 10 && isAlive)
+        {
+            health += life;
+        }
     }
 }
