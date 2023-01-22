@@ -7,7 +7,7 @@ public class Minotaur : MonoBehaviour
 {
     // Start is called before the first frame update
     private float health = 20f;
-    private float cooldown = 1f;
+    private float countdown = 1f;
     private float speed = 3f;
     private float damage = 10f;
 

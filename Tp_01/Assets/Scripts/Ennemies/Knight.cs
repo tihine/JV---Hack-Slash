@@ -7,7 +7,7 @@ public class Knight : MonoBehaviour
 {
     // Start is called before the first frame update
     private float health = 10f;
-    private float cooldown = 1f;
+    private float countdown = 1f;
     private float speed = 5f;
     private float damage = 5f;
 
