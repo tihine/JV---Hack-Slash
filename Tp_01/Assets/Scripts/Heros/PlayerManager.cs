@@ -33,7 +33,7 @@ public abstract class PlayerManager : MonoBehaviour
     protected Camera cam;
     protected Vector3 orientRefPt;
     protected Vector3 attackDir;
-    public HealthBar healthbar;
+    [SerializeField] public HealthBar healthbar;
 
     
     // Start is called before the first frame update
