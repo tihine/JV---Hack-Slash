@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireballSpawner : MonoBehaviour
+public class OrbSpawner : MonoBehaviour
 {
     private GameObject player;
     private MageManager mageMgr;
-    [SerializeField] private GameObject fireballPrefab;
+    [SerializeField] private GameObject orbPrefab;
     
 
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class FireballSpawner : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         mageMgr = player.GetComponent<MageManager>();
-        mageMgr.OnShootFireball.AddListener(ShootFireball);
+        mageMgr.OnSummonOrb.AddListener(SummonOrb);
     }
 
     // Update is called once per frame
@@ -23,8 +23,8 @@ public class FireballSpawner : MonoBehaviour
         
     }
 
-    void ShootFireball()
+    void SummonOrb()
     {
-        Instantiate(fireballPrefab, transform);
+        Instantiate(orbPrefab, transform);
     }
 }
