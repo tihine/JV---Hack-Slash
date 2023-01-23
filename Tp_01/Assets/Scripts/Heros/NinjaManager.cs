@@ -26,7 +26,7 @@ public class NinjaManager : PlayerManager
         throw new System.NotImplementedException();
     }
 
-    protected override void Action3() //
+    protected override void Action3() //KunaiSpin
     {
         throw new System.NotImplementedException();
     }

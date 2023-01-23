@@ -8,6 +8,8 @@ public class FireballManager : MonoBehaviour
     private GameObject player;
     private MageManager mageManager;
     private Animator animator;
+
+    private int wallLayerID;
     
     private Rigidbody rb;
     private SphereCollider sphColl; 
@@ -23,6 +25,8 @@ public class FireballManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         mageManager = player.GetComponent<MageManager>();
         animator = player.GetComponent<Animator>();
+
+        wallLayerID = LayerMask.NameToLayer("Wall");
         
         rb = GetComponent<Rigidbody>();
         sphColl = GetComponent<SphereCollider>();
@@ -52,7 +56,7 @@ public class FireballManager : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (exploded) return;
-        if (collision.gameObject.CompareTag("Ennemy") || collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Ennemy") || collision.gameObject.layer == wallLayerID)
         {
             Debug.Log("Collided");
             exploded = true;
