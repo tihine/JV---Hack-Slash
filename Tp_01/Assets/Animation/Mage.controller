@@ -223,13 +223,21 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< HEAD
+    m_Controller: {fileID: 0}
+=======
     m_Controller: {fileID: 9100000}
+>>>>>>> 8cabd3e5dc7b38bb652e9daea42d0dfebf64b8fd
   - m_Name: Wall
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< HEAD
+    m_Controller: {fileID: 0}
+=======
     m_Controller: {fileID: 9100000}
+>>>>>>> 8cabd3e5dc7b38bb652e9daea42d0dfebf64b8fd
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -370,9 +378,15 @@ AnimatorStateMachine:
     m_Position: {x: 270, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7311511694486179208}
+<<<<<<< HEAD
+    m_Position: {x: 30, y: 270, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -6600803650538130282}
+=======
     m_Position: {x: 30, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8585693009126446675}
+>>>>>>> 8cabd3e5dc7b38bb652e9daea42d0dfebf64b8fd
     m_Position: {x: -210, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
@@ -397,7 +411,11 @@ AnimatorState:
   m_Transitions:
   - {fileID: -8370802853936083840}
   - {fileID: 4519512850562740348}
+<<<<<<< HEAD
+  - {fileID: 7467721027198539709}
+=======
   - {fileID: 5437921810192320854}
+>>>>>>> 8cabd3e5dc7b38bb652e9daea42d0dfebf64b8fd
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -491,13 +509,39 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD
+--- !u!1101 &7467721027198539709
+AnimatorStateTransition:
+=======
 --- !u!1102 &8585693009126446675
 AnimatorState:
   serializedVersion: 6
+>>>>>>> 8cabd3e5dc7b38bb652e9daea42d0dfebf64b8fd
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Wall
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6600803650538130282}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+=======
   m_Name: Wall
   m_Speed: 1
   m_CycleOffset: 0
@@ -519,3 +563,4 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+>>>>>>> 8cabd3e5dc7b38bb652e9daea42d0dfebf64b8fd
