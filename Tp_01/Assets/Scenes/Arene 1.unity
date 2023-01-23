@@ -29036,6 +29036,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 606184024092112960, guid: 3f58d629b2ac6427d9749516bab9cbdc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606184024092112960, guid: 3f58d629b2ac6427d9749516bab9cbdc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3036479784798439530, guid: 3f58d629b2ac6427d9749516bab9cbdc,
         type: 3}
       propertyPath: m_Name
@@ -29111,7 +29121,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8582539236073862099, guid: 3f58d629b2ac6427d9749516bab9cbdc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7146977304264251613, guid: 3f58d629b2ac6427d9749516bab9cbdc, type: 3}
+    - {fileID: 3121613390913652115, guid: 3f58d629b2ac6427d9749516bab9cbdc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f58d629b2ac6427d9749516bab9cbdc, type: 3}
 --- !u!1 &1259789205 stripped
 GameObject:
