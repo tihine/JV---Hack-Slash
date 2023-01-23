@@ -20,6 +20,7 @@ public class Minotaur : MonoBehaviour
     [SerializeField] GameObject sphere;
     [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
+    private float deathTime = 2f;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
@@ -33,7 +34,12 @@ public class Minotaur : MonoBehaviour
     {
         if (!isAlive)
         {
+            deathTime -= Time.time;
             animator.SetBool("isDead", true);
+            if (deathTime < 0)
+            {
+                Destroy(gameObject);
+            }
             //fais disparaitre l'ennemi
             //détruit l'ennemi
         }
