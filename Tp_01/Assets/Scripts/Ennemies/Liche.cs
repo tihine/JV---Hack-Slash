@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class Liche : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health = 15;
+    private int maxhealth = 15;
+    private int health;
     private float cooldown = 10f;
     private float speed = 2f;
 
@@ -15,15 +16,19 @@ public class Liche : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float vision;
     [SerializeField] ParticleSystem healthzone;
+    [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
     private bool timeToShoot = true;
     private float timer = 0f;
+    private float deathTime = 2f;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent.speed = speed;
         healthzone.Stop();
+        health = maxhealth;
+        healthbar.SetMaxHealth(maxhealth);
     }
 
     // Update is called once per frame
@@ -31,7 +36,12 @@ public class Liche : MonoBehaviour
     {
         if (!isAlive)
         {
+            deathTime -= Time.time;
             animator.SetBool("isDead", true);
+            if (deathTime < 0)
+            {
+                Destroy(gameObject);
+            }
             //fais disparaitre l'ennemi
             //détruit l'ennemi
         }
@@ -85,6 +95,8 @@ public class Liche : MonoBehaviour
     public void AddDamage(int damage)
     {
         health -= damage;
+        healthbar.SetMaxHealth(health);
+        animator.SetBool("DamageTaken", true);
         if (health <= 0)
         {
             isAlive = false;
@@ -92,9 +104,10 @@ public class Liche : MonoBehaviour
     }
     public void AddLife(int life)
     {
-        if (health < 10 && isAlive)
+        if (health < maxhealth && isAlive)
         {
             health += life;
+            healthbar.SetMaxHealth(health);
         }
     }
 }

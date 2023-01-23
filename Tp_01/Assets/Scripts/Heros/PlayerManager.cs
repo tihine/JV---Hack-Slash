@@ -20,7 +20,8 @@ public abstract class PlayerManager : MonoBehaviour
     protected float moveSpeed = 10f;
     protected float horzAxis;
     protected float vertAxis;
-    
+    protected int floorOnlyLayerMask;
+
     protected int maxUpgradeCount = 10;
     protected int[] univUpgradeCounters = new int[5];
     protected int[] specUpgradeCounters = new int[5];
@@ -33,18 +34,23 @@ public abstract class PlayerManager : MonoBehaviour
     protected Camera cam;
     protected Vector3 orientRefPt;
     protected Vector3 attackDir;
-    public HealthBar healthbar;
+    [SerializeField] public HealthBar healthbar = null;
 
     
     // Start is called before the first frame update
     protected void Start()
     {
         //Character-specific initialisation goes here
+        floorOnlyLayerMask = LayerMask.GetMask("Floor");
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
         health = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
+        if (healthbar != null)
+        {
+            healthbar.SetMaxHealth(maxHealth);
+        }
+        
     }
 
     // Update is called once per frame
@@ -79,9 +85,10 @@ public abstract class PlayerManager : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit,100f, floorOnlyLayerMask))
         {
             orientRefPt = hit.point;
+            orientRefPt.y = transform.position.y;
         }
     }
 
