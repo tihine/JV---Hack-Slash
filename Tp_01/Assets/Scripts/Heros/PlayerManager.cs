@@ -88,9 +88,7 @@ public abstract class PlayerManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit,100f, floorOnlyLayerMask))
         {
             orientRefPt = hit.point;
-            orientRefPt.y = 0;
-            Debug.DrawRay(cam.transform.position, ray.direction, Color.yellow);
-            Debug.Log("Did Hit");
+            orientRefPt.y = transform.position.y;
         }
     }
 
