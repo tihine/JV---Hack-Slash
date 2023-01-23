@@ -35,7 +35,7 @@ public abstract class PlayerManager : MonoBehaviour
     protected Camera cam;
     protected Vector3 orientRefPt;
     protected Vector3 attackDir;
-    [SerializeField] public HealthBar healthbar;
+    [SerializeField] public HealthBar healthbar = null;
 
     
     // Start is called before the first frame update
@@ -48,7 +48,11 @@ public abstract class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
         health = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
+        if (healthbar != null)
+        {
+            healthbar.SetMaxHealth(maxHealth);
+        }
+        
     }
 
     // Update is called once per frame
