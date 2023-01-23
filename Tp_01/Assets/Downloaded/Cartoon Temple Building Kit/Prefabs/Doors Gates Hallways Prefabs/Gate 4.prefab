@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4000012274991244}
   - component: {fileID: 33000014223421666}
   - component: {fileID: 23000011285792486}
+  - component: {fileID: 6792509691611511195}
+  - component: {fileID: 6657220795304092225}
   m_Layer: 0
   m_Name: Gate 4
   m_TagString: Untagged
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6792509691611511195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013296790728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.338601, y: 20.000006, z: 6.394363}
+  m_Center: {x: 5.8306994, y: 9.999995, z: 1.1971061}
+--- !u!65 &6657220795304092225
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013296790728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.9963913, y: 20.000006, z: 6.394363}
+  m_Center: {x: -6.0018044, y: 9.999995, z: 1.1971061}
