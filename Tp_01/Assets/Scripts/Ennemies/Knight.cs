@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class Knight : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health = 10;
+    private int maxhealth = 10;
+    private int health;
     //private float countdown = 1f;
     private float speed = 5f;
     private int damage = 5;
@@ -16,12 +17,15 @@ public class Knight : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float vision;
     [SerializeField] GameObject sphere;
+    [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent.speed = speed;
+        health = maxhealth;
+        healthbar.SetMaxHealth(maxhealth);
     }
 
     void Update()
@@ -95,6 +99,7 @@ public class Knight : MonoBehaviour
     public void AddDamage(int damage)
     {
         health -= damage;
+        healthbar.SetMaxHealth(health);
         if (health <= 0)
         {
             isAlive = false;
@@ -102,9 +107,10 @@ public class Knight : MonoBehaviour
     }
     public void AddLife(int life)
     {
-        if (health < 10 && isAlive)
+        if (health < maxhealth && isAlive)
         {
             health += life;
+            healthbar.SetMaxHealth(health);
         }
     }
 }

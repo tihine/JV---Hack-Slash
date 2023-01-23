@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CodeMonkey.HealthSystemCM;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Minotaur : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health = 20;
+    private int maxhealth = 20;
+    private int health;
     //private float countdown = 1f;
     private float speed = 3f;
     private int damage = 10;
@@ -16,12 +18,15 @@ public class Minotaur : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float vision;
     [SerializeField] GameObject sphere;
+    [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent.speed = speed;
+        health = maxhealth;
+        healthbar.SetMaxHealth(maxhealth);
     }
 
     void Update()
@@ -91,6 +96,7 @@ public class Minotaur : MonoBehaviour
     public void AddDamage(int damage)
     {
         health -= damage;
+        healthbar.SetMaxHealth(health);
         if (health <= 0)
         {
             isAlive = false;
@@ -98,9 +104,10 @@ public class Minotaur : MonoBehaviour
     }
     public void AddLife(int life)
     {
-        if (health < 10 && isAlive)
+        if (health < maxhealth && isAlive)
         {
             health += life;
+            healthbar.SetMaxHealth(health);
         }
     }
 

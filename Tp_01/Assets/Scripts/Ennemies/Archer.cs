@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class Archer : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health = 5;
+    private int health;
+    private int maxhealth = 5;
     private float cooldown = 5f;
     private float speed = 8f;
     //private int damage = 3;
@@ -17,6 +18,7 @@ public class Archer : MonoBehaviour
     [SerializeField] private float vision;
     [SerializeField] GameObject arrow;
     [SerializeField] GameObject arrowStart;
+    [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
     private bool canShoot = true;
     private bool timeToShoot = true;
@@ -26,6 +28,8 @@ public class Archer : MonoBehaviour
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent.speed = speed;
+        health = maxhealth;
+        healthbar.SetMaxHealth(maxhealth);
     }
 
     // Update is called once per frame
@@ -151,6 +155,7 @@ public class Archer : MonoBehaviour
     public void AddDamage(int damage)
     {
         health -= damage;
+        healthbar.SetHealth(health);
         if (health <= 0)
         {
             isAlive = false;
@@ -158,9 +163,10 @@ public class Archer : MonoBehaviour
     }
     public void AddLife(int life)
     {
-        if (health < 10 && isAlive)
+        if (health < maxhealth && isAlive)
         {
             health += life;
+            healthbar.SetHealth(health);
         }
     }
 }
