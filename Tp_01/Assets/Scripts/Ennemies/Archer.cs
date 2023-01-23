@@ -6,8 +6,7 @@ using UnityEngine.AI;
 public class Archer : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int health;
-    private int maxhealth = 5;
+    private int health = 5;
     private float cooldown = 5f;
     private float speed = 8f;
     //private int damage = 3;
@@ -18,19 +17,15 @@ public class Archer : MonoBehaviour
     [SerializeField] private float vision;
     [SerializeField] GameObject arrow;
     [SerializeField] GameObject arrowStart;
-    [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
     private bool canShoot = true;
     private bool timeToShoot = true;
     private float timer = 0f;
-    private float deathTime = 2f;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent.speed = speed;
-        health = maxhealth;
-        healthbar.SetMaxHealth(maxhealth);
     }
 
     // Update is called once per frame
@@ -38,12 +33,7 @@ public class Archer : MonoBehaviour
     {
         if (!isAlive)
         {
-            deathTime -= Time.time;
             animator.SetBool("isDead", true);
-            if (deathTime < 0)
-            {
-                Destroy(gameObject);
-            }
             //fais disparaitre l'ennemi
             //détruit l'ennemi
         }
@@ -56,7 +46,7 @@ public class Archer : MonoBehaviour
             //si le truc touché est le joueur ou un ennemi: mettre canShoot true
             if (Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.TransformDirection(Vector3.forward), out hit, 40))
             {
-                if (hit.collider.tag == "Player" || hit.collider.tag == "Ennemy")
+                if (hit.collider.tag == "PlayerCollider" || hit.collider.tag == "Ennemy")
                 {
                     canShoot = true;
                 }
@@ -133,7 +123,7 @@ public class Archer : MonoBehaviour
         }
 
 
-        /*
+
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("DamageTaken", true);
@@ -142,7 +132,7 @@ public class Archer : MonoBehaviour
         {
             animator.SetBool("isDead", true);
             isAlive = false;
-        }*/
+        }
     }
 
     public void Shoot()
@@ -161,8 +151,6 @@ public class Archer : MonoBehaviour
     public void AddDamage(int damage)
     {
         health -= damage;
-        healthbar.SetHealth(health);
-        animator.SetBool("DamageTaken", true);
         if (health <= 0)
         {
             isAlive = false;
@@ -170,10 +158,9 @@ public class Archer : MonoBehaviour
     }
     public void AddLife(int life)
     {
-        if (health < maxhealth && isAlive)
+        if (health < 10 && isAlive)
         {
             health += life;
-            healthbar.SetHealth(health);
         }
     }
 }

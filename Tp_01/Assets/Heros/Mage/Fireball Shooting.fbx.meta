@@ -41,7 +41,7 @@ ModelImporter:
       firstFrame: 0
       lastFrame: 69
       wrapMode: 0
-      orientationOffsetY: 70
+      orientationOffsetY: 90
       level: 0
       cycleOffset: 0
       loop: 0
@@ -61,13 +61,6 @@ ModelImporter:
       events:
       - time: 0.42537314
         functionName: PlayerReleaseFireball
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9994364
-        functionName: EndFireballAnimation
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

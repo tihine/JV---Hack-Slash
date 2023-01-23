@@ -13,7 +13,7 @@ public class WaveCounter : MonoBehaviour
         
     void DisplayWave(string waveToDisplay)
     {
-        waveText.text = "Wave : "+waveToDisplay;
+        waveText.text = waveToDisplay;
     }
     private void LateUpdate()
     {

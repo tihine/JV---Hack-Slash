@@ -31,6 +31,7 @@ public class MageManager : PlayerManager
 
     protected override void Action1()
     {
+        //Start fireball sequence:
         animator.SetBool("Fireball", true);
     }
 
@@ -38,11 +39,6 @@ public class MageManager : PlayerManager
     void PlayerReleaseFireball()
     {
         OnShootFireball?.Invoke();
-    }
-
-    void EndFireballAnimation()
-    {
-        animator.SetBool("Fireball", false);
     }
 
     protected override void Action2()
@@ -54,11 +50,6 @@ public class MageManager : PlayerManager
     {
         OnSummonOrb?.Invoke();
     }
-    
-    void EndOrbAnimation()
-    {
-        animator.SetBool("Orb", false);
-    }
 
     protected override void Action3()
     {
@@ -68,10 +59,5 @@ public class MageManager : PlayerManager
     void PlayerRaiseWall()
     {
         OnRaiseWall?.Invoke();
-    }
-    
-    void EndWallAnimation()
-    {
-        animator.SetBool("Wall", false);
     }
 }
