@@ -2061,7 +2061,7 @@ MonoBehaviour:
   player: {fileID: 0}
   navMeshAgent: {fileID: 5294451315856914799}
   animator: {fileID: 5294451317074215505}
-  vision: 50
+  vision: 100
   sphere: {fileID: 5294451316460356649}
   healthbar: {fileID: 7062791513948089187}
 --- !u!195 &5294451315856914799
@@ -2502,7 +2502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ec35d64bb4d634888b8d8b3b2bc0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &5490110316981950258
 GameObject:
   m_ObjectHideFlags: 0

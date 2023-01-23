@@ -498,7 +498,7 @@ MonoBehaviour:
   player: {fileID: 0}
   navMeshAgent: {fileID: 1768742921960066622}
   animator: {fileID: 1768742921012104888}
-  vision: 50
+  vision: 100
   arrow: {fileID: 1963436892180161227, guid: 2b74cc9f03d8fcf448813fe7e829ae87, type: 3}
   arrowStart: {fileID: 1768742921140745018}
   healthbar: {fileID: 7073268973828282662}
@@ -3512,7 +3512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ec35d64bb4d634888b8d8b3b2bc0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &8637452815921023889
 GameObject:
   m_ObjectHideFlags: 0
