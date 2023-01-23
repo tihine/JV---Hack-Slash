@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39051124, g: 0.40539232, b: 0.3959748, a: 1}
+  m_IndirectSpecularColor: {r: 0.39051145, g: 0.40539256, b: 0.39597508, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0bfa5a8da1743374eb6767893df6ce5e, type: 2}
 --- !u!1001 &2525353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12248,6 +12248,105 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0976393, y: 2.125028, z: 2.1263375}
   m_Center: {x: 0, y: 0.0000047683716, z: 0.000015199184}
+--- !u!1001 &791026037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6306085063620564872, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_Name
+      value: SkelWarrior Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564872, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306085063620564873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244427851697549238, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120381468898288873, guid: 5691ad04a210e49519f8f7f5864b14ea,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5691ad04a210e49519f8f7f5864b14ea, type: 3}
 --- !u!4 &792718056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012483789852, guid: 34a226b2b0cae434eab560c2f7b63617,
@@ -21365,6 +21464,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1409528034}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1409528036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7988006651242002723, guid: f89474db0020f344594c3ad10a23b21b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1409528034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1409528037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409528036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5193339fbeb4dcf49a2aebbcacd44208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnZones:
+  - {fileID: 1409528035}
+  - {fileID: 530276374}
+  - {fileID: 1511292629}
+  - {fileID: 1609777235}
+  - {fileID: 71786712}
+  - {fileID: 1454909618}
+  enemies:
+  - {fileID: 1462191591578000355, guid: bf421ced594bf984996ed8cf84f472bc, type: 3}
+  - {fileID: 5023979488508073305, guid: 917928fec3d46f64f85413c4411535ed, type: 3}
+  - {fileID: 2545162890107477767, guid: 568a1d3189a639f488af11a4b70fcc8b, type: 3}
+  - {fileID: 42550683790725688, guid: 988ffa108730e384eaeaa39af8d4e9d4, type: 3}
+--- !u!114 &1409528038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409528036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe12e9f03bbc3c4b91101963b0e70dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  troupFactory: {fileID: 1409528037}
+  spawnDelay: 0.5
+  waveDelay: 5
+  numberOfWaves: 10
 --- !u!1001 &1411621963
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class Archer : MonoBehaviour
     private bool canShoot = true;
     private bool timeToShoot = true;
     private float timer = 0f;
+    private float deathTime = 2f;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
@@ -37,7 +38,12 @@ public class Archer : MonoBehaviour
     {
         if (!isAlive)
         {
+            deathTime -= Time.time;
             animator.SetBool("isDead", true);
+            if (deathTime < 0)
+            {
+                Destroy(gameObject);
+            }
             //fais disparaitre l'ennemi
             //détruit l'ennemi
         }
@@ -50,7 +56,7 @@ public class Archer : MonoBehaviour
             //si le truc touché est le joueur ou un ennemi: mettre canShoot true
             if (Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.TransformDirection(Vector3.forward), out hit, 40))
             {
-                if (hit.collider.tag == "PlayerCollider" || hit.collider.tag == "Ennemy")
+                if (hit.collider.tag == "Player" || hit.collider.tag == "Ennemy")
                 {
                     canShoot = true;
                 }
@@ -127,7 +133,7 @@ public class Archer : MonoBehaviour
         }
 
 
-
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("DamageTaken", true);
@@ -136,7 +142,7 @@ public class Archer : MonoBehaviour
         {
             animator.SetBool("isDead", true);
             isAlive = false;
-        }
+        }*/
     }
 
     public void Shoot()
@@ -156,6 +162,7 @@ public class Archer : MonoBehaviour
     {
         health -= damage;
         healthbar.SetHealth(health);
+        animator.SetBool("DamageTaken", true);
         if (health <= 0)
         {
             isAlive = false;

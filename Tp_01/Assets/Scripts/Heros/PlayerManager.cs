@@ -20,7 +20,8 @@ public abstract class PlayerManager : MonoBehaviour
     protected float moveSpeed = 10f;
     protected float horzAxis;
     protected float vertAxis;
-    
+    protected int floorOnlyLayerMask;
+
     protected int maxUpgradeCount = 10;
     protected int[] univUpgradeCounters = new int[5];
     protected int[] specUpgradeCounters = new int[5];
@@ -40,6 +41,7 @@ public abstract class PlayerManager : MonoBehaviour
     protected void Start()
     {
         //Character-specific initialisation goes here
+        floorOnlyLayerMask = LayerMask.GetMask("Floor");
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
@@ -83,9 +85,10 @@ public abstract class PlayerManager : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit,100f, floorOnlyLayerMask))
         {
             orientRefPt = hit.point;
+            orientRefPt.y = transform.position.y;
         }
     }
 

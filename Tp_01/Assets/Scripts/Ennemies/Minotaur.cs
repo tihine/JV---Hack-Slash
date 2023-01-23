@@ -20,6 +20,7 @@ public class Minotaur : MonoBehaviour
     [SerializeField] GameObject sphere;
     [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
+    private float deathTime = 2f;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
@@ -33,7 +34,12 @@ public class Minotaur : MonoBehaviour
     {
         if (!isAlive)
         {
+            deathTime -= Time.time;
             animator.SetBool("isDead", true);
+            if (deathTime < 0)
+            {
+                Destroy(gameObject);
+            }
             //fais disparaitre l'ennemi
             //détruit l'ennemi
         }
@@ -58,10 +64,12 @@ public class Minotaur : MonoBehaviour
             navMeshAgent.isStopped = true;
 
         }
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("DamageTaken", true);
         }
+        */
         if (Vector3.Distance(transform.position, player.transform.position) < 3f)
         {
             animator.SetBool("isPunching", true);
@@ -83,7 +91,7 @@ public class Minotaur : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(sphere.transform.position, 2.5f);
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.tag == "PlayerCollider")
+            if (hitCollider.tag == "Player")
             {
                 //Debug.Log("BAM mino");
                 //hitCollider.SendMessage("AddDamage", damage);
@@ -97,6 +105,7 @@ public class Minotaur : MonoBehaviour
     {
         health -= damage;
         healthbar.SetMaxHealth(health);
+        animator.SetBool("DamageTaken", true);
         if (health <= 0)
         {
             isAlive = false;

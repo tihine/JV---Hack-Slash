@@ -19,6 +19,7 @@ public class Knight : MonoBehaviour
     [SerializeField] GameObject sphere;
     [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
+    private float deathTime = 2f;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
@@ -32,7 +33,12 @@ public class Knight : MonoBehaviour
     {
         if (!isAlive)
         {
+            deathTime -= Time.time;
             animator.SetBool("isDead", true);
+            if (deathTime < 0)
+            {
+                Destroy(gameObject);
+            }
             //fais disparaitre l'ennemi
             //détruit l'ennemi
         }
@@ -61,21 +67,23 @@ public class Knight : MonoBehaviour
             navMeshAgent.isStopped = true;
 
         }
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("DamageTaken", true);
-        }
+        }*/
         if (Vector3.Distance(transform.position, player.transform.position) < 4f)
         {
             animator.SetBool("isPunching", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isIdling", false);
         }
+        /*
         if (Input.GetMouseButton(1))
         {
             animator.SetBool("isDead", true);
             isAlive = false;
-        }
+        }*/
 
     }
 
@@ -86,7 +94,7 @@ public class Knight : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(sphere.transform.position, 2.5f );
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.tag == "PlayerCollider")
+            if (hitCollider.tag == "Player")
             {
                 //Debug.Log("BAM chevalier");
                 //hitCollider.SendMessage("AddDamage", damage);
@@ -100,6 +108,7 @@ public class Knight : MonoBehaviour
     {
         health -= damage;
         healthbar.SetMaxHealth(health);
+        animator.SetBool("DamageTaken", true);
         if (health <= 0)
         {
             isAlive = false;
