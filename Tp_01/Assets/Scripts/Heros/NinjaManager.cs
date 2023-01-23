@@ -16,17 +16,17 @@ public class NinjaManager : PlayerManager
         
     }
 
-    protected override void Action1()
+    protected override void Action1() //KatanaSlice
     {
         throw new System.NotImplementedException();
     }
 
-    protected override void Action2()
+    protected override void Action2() //Smokescreen
     {
         throw new System.NotImplementedException();
     }
 
-    protected override void Action3()
+    protected override void Action3() //
     {
         throw new System.NotImplementedException();
     }
