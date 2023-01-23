@@ -20,6 +20,7 @@ public class Liche : MonoBehaviour
     private bool isAlive = true;
     private bool timeToShoot = true;
     private float timer = 0f;
+    private float deathTime = 2f;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
@@ -35,7 +36,12 @@ public class Liche : MonoBehaviour
     {
         if (!isAlive)
         {
+            deathTime -= Time.time;
             animator.SetBool("isDead", true);
+            if (deathTime < 0)
+            {
+                Destroy(gameObject);
+            }
             //fais disparaitre l'ennemi
             //détruit l'ennemi
         }
