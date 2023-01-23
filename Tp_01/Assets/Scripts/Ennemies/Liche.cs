@@ -90,6 +90,7 @@ public class Liche : MonoBehaviour
     {
         health -= damage;
         healthbar.SetMaxHealth(health);
+        animator.SetBool("DamageTaken", true);
         if (health <= 0)
         {
             isAlive = false;
