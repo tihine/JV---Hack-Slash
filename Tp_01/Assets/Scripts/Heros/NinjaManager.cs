@@ -5,15 +5,19 @@ using UnityEngine;
 public class NinjaManager : PlayerManager
 {
     // Start is called before the first frame update
-    void Start()
+    private new void Start()
     {
-        
+        maxHealth = 45;
+        cooldown1 = 1f;
+        cooldown2 = 20f;
+        cooldown3 = 5f;
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    private new void Update()
     {
-        
+        base.Update();
     }
 
     protected override void Action1() //KatanaSlice
