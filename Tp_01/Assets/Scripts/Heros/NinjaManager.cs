@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NinjaManager : PlayerManager
 {
+    private Collider collider;
     // Start is called before the first frame update
     private new void Start()
     {
@@ -11,6 +12,8 @@ public class NinjaManager : PlayerManager
         cooldown1 = 1f;
         cooldown2 = 20f;
         cooldown3 = 5f;
+
+        collider = GetComponent<Collider>();
         base.Start();
     }
 
@@ -22,12 +25,28 @@ public class NinjaManager : PlayerManager
 
     protected override void Action1() //KatanaSlice
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("Katana", true);
+        Invoke("EndKatanaAnimation", 1.5f);
+    }
+
+    void EndKatanaAnimation()
+    {
+        animator.SetBool("Katana", false);
     }
 
     protected override void Action2() //Smokescreen
     {
         throw new System.NotImplementedException();
+    }
+
+    private void DisableCollider()
+    {
+        collider.enabled = false;
+    }
+    
+    private void EnableCollider()
+    {
+        collider.enabled = true;
     }
 
     protected override void Action3() //KunaiSpin
