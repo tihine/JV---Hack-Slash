@@ -32,6 +32,7 @@ public class MageManager : PlayerManager
     protected override void Action1()
     {
         animator.SetBool("Fireball", true);
+        Invoke("EndFireballAnimation", 2.3f);
     }
 
     //Fireball generation triggered by animation event:

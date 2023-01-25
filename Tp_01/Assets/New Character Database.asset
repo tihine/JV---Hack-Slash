@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: New Character Database
   m_EditorClassIdentifier: 
   character:
-  - characterName: Archer
-    characterSprite: {fileID: 21300000, guid: f927a333c5995e543a48817fc059d140, type: 3}
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 9676b8886d9e11b4ba1c4fb28b47ba0e, type: 3}
+  - characterName: Ninja
+    characterSprite: {fileID: 21300000, guid: 41bd34725727bec408da20daf2b203a1, type: 3}
