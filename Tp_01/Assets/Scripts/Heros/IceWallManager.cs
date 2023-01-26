@@ -11,7 +11,6 @@ public class IceWallManager : MonoBehaviour
     
     private Rigidbody rb;
     private int hitCounter;
-    private int maxHits = 5;
     private float lifespan = 5f;
     private bool deactivated;
 

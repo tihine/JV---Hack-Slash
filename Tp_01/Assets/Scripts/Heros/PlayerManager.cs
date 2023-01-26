@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -61,6 +62,7 @@ public abstract class PlayerManager : MonoBehaviour
         if (!onCooldown1 && Input.GetMouseButtonDown(0))
         {
             StartCoroutine(ActionSeq1());
+            Action1();
         }
         if (!onCooldown2 && Input.GetMouseButtonDown(1))
         {
@@ -131,6 +133,7 @@ public abstract class PlayerManager : MonoBehaviour
     public void AddDamage(int damage) //TODO change back to "PROTECTED" later!!!
     {
         health -= damage;
+        Debug.Log("Player taking damage");
         healthbar.SetHealth(health);
         if (health <= 0)
         {
@@ -150,9 +153,11 @@ public abstract class PlayerManager : MonoBehaviour
         onCooldown1 = true;
         yield return new WaitForSeconds(cooldown1);
         onCooldown1 = false;
+        EndAction1();
     }
 
     protected abstract void Action1();
+    protected abstract void EndAction1();
 
     protected IEnumerator ActionSeq2()
     {

@@ -24,6 +24,10 @@ public class Archer : MonoBehaviour
     private bool timeToShoot = true;
     private float timer = 0f;
     private float deathTime = 2f;
+    
+    //For Ninja smokescreen functions:
+    private NinjaManager ninjaMgr;
+
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
@@ -31,6 +35,14 @@ public class Archer : MonoBehaviour
         navMeshAgent.speed = speed;
         health = maxhealth;
         healthbar.SetMaxHealth(maxhealth);
+
+        //For Ninja smokescreen functions:
+        if (player.name == "Ninja")
+        {
+            ninjaMgr = player.GetComponent<NinjaManager>();
+            ninjaMgr.OnStartInvisibility.AddListener(StartNinjaInvisibility);
+            ninjaMgr.OnEndInvisibility.AddListener(EndNinjaInvisibility);
+        }
     }
 
     // Update is called once per frame
@@ -175,5 +187,16 @@ public class Archer : MonoBehaviour
             health += life;
             healthbar.SetHealth(health);
         }
+    }
+    
+    //To make Ninja visible or invisible by enabling/disabling NavMeshAgent – enemies will not move when Ninja is invisible:
+    private void StartNinjaInvisibility()
+    {
+        navMeshAgent.enabled = false;
+    }
+    
+    private void EndNinjaInvisibility()
+    {
+        navMeshAgent.enabled = true;
     }
 }

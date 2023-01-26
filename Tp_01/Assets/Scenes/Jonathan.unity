@@ -523,7 +523,7 @@ Transform:
   m_LocalScale: {x: 1.3386, y: 16, z: 34.973976}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2118473647
 GameObject:
@@ -881,7 +881,7 @@ PrefabInstance:
     - target: {fileID: 7269954293786572761, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7269954293786572761, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
@@ -942,30 +942,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 606184024092112960, guid: 3f58d629b2ac6427d9749516bab9cbdc,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 606184024092112960, guid: 3f58d629b2ac6427d9749516bab9cbdc,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1813094731873267796, guid: 3f58d629b2ac6427d9749516bab9cbdc,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3036479784798439530, guid: 3f58d629b2ac6427d9749516bab9cbdc,
         type: 3}
       propertyPath: m_Name
       value: Mage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3036479784798439530, guid: 3f58d629b2ac6427d9749516bab9cbdc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036479784798439531, guid: 3f58d629b2ac6427d9749516bab9cbdc,
         type: 3}

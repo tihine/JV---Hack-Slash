@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MageEvent : UnityEvent
-{
-}
-
 public class MageManager : PlayerManager
 {
-    public MageEvent OnShootFireball = new MageEvent();
-    public MageEvent OnSummonOrb = new MageEvent();
-    public MageEvent OnRaiseWall = new MageEvent();
+    public UnityEvent OnShootFireball = new UnityEvent();
+    public UnityEvent OnSummonOrb = new UnityEvent();
+    public UnityEvent OnRaiseWall = new UnityEvent();
     
     // Start is called before the first frame update
     private new void Start()
@@ -32,7 +28,11 @@ public class MageManager : PlayerManager
     protected override void Action1()
     {
         animator.SetBool("Fireball", true);
-        Invoke("EndFireballAnimation", 2.3f);
+    }
+
+    protected override void EndAction1()
+    {
+        EndFireballAnimation();
     }
 
     //Fireball generation triggered by animation event:

@@ -21,6 +21,9 @@ public class Minotaur : MonoBehaviour
     [SerializeField] private HealthBar healthbar;
     private bool isAlive = true;
     private float deathTime = 2f;
+    
+    //For Ninja smokescreen functions:
+    private NinjaManager ninjaMgr;
     void Start()
     {
         if (!navMeshAgent) navMeshAgent = GetComponent<NavMeshAgent>();
@@ -28,6 +31,14 @@ public class Minotaur : MonoBehaviour
         navMeshAgent.speed = speed;
         health = maxhealth;
         healthbar.SetMaxHealth(maxhealth);
+        
+        //For Ninja smokescreen functions:
+        if (player.name == "Ninja")
+        {
+            ninjaMgr = player.GetComponent<NinjaManager>();
+            ninjaMgr.OnStartInvisibility.AddListener(StartNinjaInvisibility);
+            ninjaMgr.OnEndInvisibility.AddListener(EndNinjaInvisibility);
+        }
     }
 
     void Update()
@@ -119,6 +130,16 @@ public class Minotaur : MonoBehaviour
             healthbar.SetMaxHealth(health);
         }
     }
-
+    
+    //To make Ninja visible or invisible by enabling/disabling NavMeshAgent – enemies will not move when Ninja is invisible:
+    private void StartNinjaInvisibility()
+    {
+        navMeshAgent.enabled = false;
+    }
+    
+    private void EndNinjaInvisibility()
+    {
+        navMeshAgent.enabled = true;
+    }
 }
 

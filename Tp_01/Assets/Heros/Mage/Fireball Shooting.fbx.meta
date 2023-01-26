@@ -21,7 +21,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: Event EndFireballAnimation has a time (2.151672) outside
+    animationImportWarnings: Event EndFireballAnimation has a time (2.223602) outside
       the clip's valid range (0.000000..2.133333). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -67,7 +67,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9994364
+      - time: 0.86474246
         functionName: EndFireballAnimation
         data: 
         objectReferenceParameter: {instanceID: 0}
