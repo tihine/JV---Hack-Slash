@@ -19,6 +19,5 @@ public class PlayerFollowCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerTransform.position);
     }
 }

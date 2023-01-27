@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 /*
@@ -14,6 +16,8 @@ using UnityEngine.Tilemaps;
 
 public abstract class PlayerManager : MonoBehaviour
 {
+    public UnityEvent DeathEvent = new UnityEvent();
+    
     protected int health;
     protected int maxHealth;
     protected float cooldown1, cooldown2, cooldown3;
@@ -51,7 +55,7 @@ public abstract class PlayerManager : MonoBehaviour
         {
             healthbar.SetMaxHealth(maxHealth);
         }
-        
+        DeathEvent.AddListener(PlayerDeath);
     }
 
     // Update is called once per frame
@@ -137,7 +141,7 @@ public abstract class PlayerManager : MonoBehaviour
         healthbar.SetHealth(health);
         if (health <= 0)
         {
-            //TODO Invoke DeathEvent/GameOverEvent (to be coded)
+            DeathEvent?.Invoke();
         }
     }
     
@@ -179,7 +183,7 @@ public abstract class PlayerManager : MonoBehaviour
 
     protected abstract void Action3();
 
-    //Upgrade methods
+    //Upgrade methods (to be moved to a separate script)
     protected void Upgrade(int upgradeNo) //10 upgrades indexed from 0 to 9
     {
         if (upgradeNo / 5 == 0)
@@ -193,5 +197,9 @@ public abstract class PlayerManager : MonoBehaviour
             //TODO Functions applying upgrades
         }
     }
-    
+
+    protected void PlayerDeath()
+    {
+        SceneManager.LoadSceneAsync("Settings");
+    }
 }
