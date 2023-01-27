@@ -27711,17 +27711,22 @@ PrefabInstance:
     - target: {fileID: 4357867926713778440, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4357867926713778440, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7269954293786572760, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_Name
       value: Ninja
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269954293786572760, guid: e3cfc0787baaf4316979ae4048253d15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7269954293786572761, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
@@ -27776,6 +27781,11 @@ PrefabInstance:
     - target: {fileID: 7269954293786572761, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093411902161095488, guid: e3cfc0787baaf4316979ae4048253d15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
