@@ -17,6 +17,7 @@ public class OrbManager : MonoBehaviour
     private bool deactivated;
     private float angularVel = 1000f;
     private float orbitRadius;
+    private int orbDamage = 5;
     
     /* May be useful for upgrades
     private SphereCollider sphColl;
@@ -76,7 +77,7 @@ public class OrbManager : MonoBehaviour
         if (other.CompareTag("Ennemy"))
         {
             hitCounter++;
-            other.SendMessage("AddDamage", 2);
+            other.SendMessage("AddDamage", orbDamage);
         }
     }
 
