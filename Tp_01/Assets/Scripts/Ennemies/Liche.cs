@@ -45,17 +45,7 @@ public class Liche : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAlive)
-        {
-            deathTime -= Time.time;
-            animator.SetBool("isDead", true);
-            if (deathTime < 0)
-            {
-                Destroy(gameObject);
-            }
-            //fais disparaitre l'ennemi
-            //détruit l'ennemi
-        }
+        
         //look at the player
         if (Vector3.Distance(transform.position, player.transform.position) < vision && isAlive)
         {
@@ -94,6 +84,17 @@ public class Liche : MonoBehaviour
             timeToShoot = false;
             timer = 0f;
 
+        }
+        if (!isAlive)
+        {
+            deathTime -= Time.time;
+            animator.SetBool("isDead", true);
+            if (deathTime < 0)
+            {
+                Destroy(gameObject);
+            }
+            //fais disparaitre l'ennemi
+            //détruit l'ennemi
         }
     }
     public void Sort()
