@@ -15,7 +15,8 @@ public class OrbManager : MonoBehaviour
     private float lifespan = 5f;
     private bool orbiting;
     private bool deactivated;
-    private float angularVel = 100f;
+    private float angularVel = 1000f;
+    private float orbitRadius;
     
     /* May be useful for upgrades
     private SphereCollider sphColl;
@@ -30,6 +31,7 @@ public class OrbManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         mageManager = player.GetComponent<MageManager>();
         animator = player.GetComponent<Animator>();
+        orbitRadius = Vector3.Distance(player.transform.position, transform.position);
         
         rb = GetComponent<Rigidbody>();
         //sphColl = GetComponent<SphereCollider>();
@@ -44,6 +46,15 @@ public class OrbManager : MonoBehaviour
         if (orbiting)
         {
             transform.RotateAround(player.transform.position, Vector3.up, angularVel * Time.deltaTime);
+            Vector3 towardsPlayer = player.transform.position - transform.position;
+            if (towardsPlayer.magnitude > orbitRadius)
+            {
+                transform.position += towardsPlayer.normalized * 0.1f;
+            }
+            if (towardsPlayer.magnitude < orbitRadius)
+            {
+                transform.position -= towardsPlayer.normalized * 0.1f;
+            }
         }
         //Remove orb from arena after maxHits hits or lifespan seconds:
         if (hitCounter >= maxHits || deactivated)
