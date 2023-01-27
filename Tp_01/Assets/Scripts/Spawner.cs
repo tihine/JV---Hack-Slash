@@ -28,6 +28,7 @@ public class Spawner : MonoBehaviour
     {
         //    StartCoroutine(waveSpawner());
         wave_max_number = wavebefore_maxnumber + wave2before_maxnumber;
+        current_wave = 1;
     }
     private void Update()
     {
