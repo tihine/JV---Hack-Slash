@@ -105,7 +105,7 @@ public class Minotaur : MonoBehaviour
             if (hitCollider.tag == "Player")
             {
                 //Debug.Log("BAM mino");
-                //hitCollider.SendMessage("AddDamage", damage);
+                hitCollider.SendMessage("AddDamage", damage);
             }
             
 

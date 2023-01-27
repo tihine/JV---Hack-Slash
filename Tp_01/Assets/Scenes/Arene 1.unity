@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45106822, g: 0.5008896, b: 0.574133, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9306,7 +9306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &488013295
 Light:
   m_ObjectHideFlags: 0
@@ -27711,22 +27711,17 @@ PrefabInstance:
     - target: {fileID: 4357867926713778440, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4357867926713778440, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7269954293786572760, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_Name
       value: Ninja
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269954293786572760, guid: e3cfc0787baaf4316979ae4048253d15,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7269954293786572761, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
@@ -27781,11 +27776,6 @@ PrefabInstance:
     - target: {fileID: 7269954293786572761, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8093411902161095488, guid: e3cfc0787baaf4316979ae4048253d15,
-        type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

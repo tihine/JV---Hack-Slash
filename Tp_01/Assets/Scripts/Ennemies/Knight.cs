@@ -108,7 +108,7 @@ public class Knight : MonoBehaviour
             if (hitCollider.tag == "Player")
             {
                 //Debug.Log("BAM chevalier");
-                //hitCollider.SendMessage("AddDamage", damage);
+                hitCollider.SendMessage("AddDamage", damage);
             }
             
             

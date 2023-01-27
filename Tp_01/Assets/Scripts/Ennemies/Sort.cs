@@ -27,15 +27,15 @@ public class Sort : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5f);
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.tag == "PlayerCollider")
+            if (hitCollider.tag == "Player")
             {
                 Debug.Log("Touché");
-                //hitCollider.SendMessage("AddDamage", 1);
+                hitCollider.SendMessage("AddDamage", 1);
             }
             if (hitCollider.tag == "Ennemy")
             {
                 Debug.Log("Heal" + hitCollider.gameObject.name);
-                //hitCollider.SendMessage("AddLife", 1);
+                hitCollider.SendMessage("AddLife", 1);
             }
 
 
