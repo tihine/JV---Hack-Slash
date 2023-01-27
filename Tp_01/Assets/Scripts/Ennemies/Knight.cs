@@ -118,7 +118,7 @@ public class Knight : MonoBehaviour
     public void AddDamage(int damage)
     {
         health -= damage;
-        healthbar.SetMaxHealth(health);
+        healthbar.SetHealth(health);
         animator.SetBool("DamageTaken", true);
         if (health <= 0)
         {
