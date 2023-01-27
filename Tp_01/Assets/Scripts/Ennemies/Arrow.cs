@@ -29,6 +29,7 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy (this.gameObject);
+        //if tag player
         //other.SendMessage("AddDamage", 3);
     }
 }
