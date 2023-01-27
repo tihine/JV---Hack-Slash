@@ -26,6 +26,9 @@ public abstract class PlayerManager : MonoBehaviour
     protected float horzAxis;
     protected float vertAxis;
     protected int floorOnlyLayerMask;
+    
+    //For God Mode implementation :
+    protected bool godMode;
 
     protected int maxUpgradeCount = 10;
     protected int[] univUpgradeCounters = new int[5];
@@ -75,6 +78,17 @@ public abstract class PlayerManager : MonoBehaviour
         if (!onCooldown3 && Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(ActionSeq3());
+        }
+        
+        //God Mode activation et deactivation for testing purposes:
+        if (Input.GetKeyDown(KeyCode.V)) //God Mode activation
+        {
+            health = maxHealth;
+            godMode = true;
+        }
+        if (Input.GetKeyDown(KeyCode.N)) //God Mode deactivation
+        {
+            godMode = false;
         }
     }
 
@@ -136,6 +150,7 @@ public abstract class PlayerManager : MonoBehaviour
 
     public void AddDamage(int damage)
     {
+        if (godMode) return;
         health -= damage;
         Debug.Log("Player taking damage");
         healthbar.SetHealth(health);
