@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,6 +25,8 @@ public class NinjaManager : PlayerManager
 
     //Set to true to disable Ninja automatic player orientation;
     private bool kunaiSpinning;
+    //Enable to allow animation for KunaiSpin:
+    private Animator auxAnimator;
     
     // Start is called before the first frame update
     private new void Start()
@@ -35,6 +38,7 @@ public class NinjaManager : PlayerManager
 
         playerLayer = LayerMask.NameToLayer("Player");
         enemyLayer = LayerMask.NameToLayer("Ennemy");
+        auxAnimator = transform.GetChild(0).GetComponent<Animator>();
         base.Start();
     }
 
@@ -70,13 +74,15 @@ public class NinjaManager : PlayerManager
     {
         if (Physics.Raycast(transform.position, attackDir, out RaycastHit hit, katanaRange))
         {
-            hit.collider.SendMessage("AddDamage", katanaDamage);
+            if (hit.collider.CompareTag("Ennemy"))
+            {
+                hit.collider.SendMessage("AddDamage", katanaDamage);
+            }
         }
     }
 
     protected override void Action2() //KunaiSpin
     {
-        animator.SetBool("Kunai", true);
         Debug.Log("KunaiSpin started");
         StartCoroutine(KunaiSpin());
     }
@@ -84,15 +90,22 @@ public class NinjaManager : PlayerManager
     private IEnumerator KunaiSpin()
     {
         kunaiSpinning = true;
+        animator.enabled = false;
+        auxAnimator.enabled = true;
+        auxAnimator.SetBool("Kunai", true);
+        rb.AddTorque(Vector3.up * kunaiSpinSpeed, ForceMode.VelocityChange);
         float throwingTime = 0f;
         while (throwingTime < kunaiSpinDuration)
         {
             OnThrowKunai?.Invoke();
             yield return new WaitForSeconds(kunaiThrowInterval);
             throwingTime += kunaiThrowInterval;
-            transform.RotateAround(transform.position, Vector3.up, kunaiSpinSpeed);
         }
+        auxAnimator.SetBool("Kunai", false);
+        auxAnimator.enabled = false;
+        animator.enabled = true;
         kunaiSpinning = false;
+        rb.Sleep();
         yield return null;
     }
 
