@@ -60,6 +60,11 @@ public class NinjaManager : PlayerManager
         animator.SetBool("Katana", false);
     }
 
+    void StrikeEnemies()
+    {
+        
+    }
+
     protected override void Action2() //KunaiSpin
     {
         return;

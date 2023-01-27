@@ -130,7 +130,7 @@ public abstract class PlayerManager : MonoBehaviour
     
     //Health management
 
-    public void AddDamage(int damage) //TODO change back to "PROTECTED" later!!!
+    public void AddDamage(int damage)
     {
         health -= damage;
         Debug.Log("Player taking damage");
