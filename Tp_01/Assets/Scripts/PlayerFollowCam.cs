@@ -19,12 +19,6 @@ public class PlayerFollowCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerTransform)
-        {
-            playerTransform = GameObject.FindWithTag("Player").transform;
-            vcam = GetComponent<CinemachineVirtualCamera>();
-            vcam.LookAt = playerTransform;
-            vcam.Follow = playerTransform;
-        }
+        Debug.Log(playerTransform.position);
     }
 }
