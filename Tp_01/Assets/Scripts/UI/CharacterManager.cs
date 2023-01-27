@@ -8,6 +8,7 @@ public class CharacterManager : MonoBehaviour
     public CharacterDatabase CharacterDB;
     public TMPro.TMP_Text nameText;
     public SpriteRenderer characterSprite;
+    public static GameObject characterPrefab;
     private int selectedOption = 0;
 
     
@@ -51,6 +52,7 @@ public class CharacterManager : MonoBehaviour
         Character character= CharacterDB.GetCharacter(selectedOption);
         characterSprite.sprite = character.characterSprite;
         nameText.text = character.characterName;
+        characterPrefab = character.characterPrefab;
     }
 
     private void Load()

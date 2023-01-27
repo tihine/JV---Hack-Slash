@@ -13,7 +13,7 @@ public class HeroChoiceMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        int nbr_scene = Random.Range(1, 4); 
+        int nbr_scene = Random.Range(1, 4);
         string scene = "Arene "+ nbr_scene;
         Debug.Log(scene);
         SceneManager.LoadSceneAsync(scene);

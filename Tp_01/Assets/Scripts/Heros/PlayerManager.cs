@@ -100,7 +100,7 @@ public abstract class PlayerManager : MonoBehaviour
         vertAxis = Input.GetAxis("Vertical");
     }
     
-    protected void Orient()
+    protected virtual void Orient()
     {
         transform.LookAt(orientRefPt);
         attackDir = (orientRefPt - transform.position).normalized;

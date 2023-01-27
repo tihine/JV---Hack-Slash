@@ -15,5 +15,9 @@ MonoBehaviour:
   character:
   - characterName: Mage
     characterSprite: {fileID: 21300000, guid: 9676b8886d9e11b4ba1c4fb28b47ba0e, type: 3}
+    characterPrefab: {fileID: 3036479784798439530, guid: 3f58d629b2ac6427d9749516bab9cbdc,
+      type: 3}
   - characterName: Ninja
     characterSprite: {fileID: 21300000, guid: 41bd34725727bec408da20daf2b203a1, type: 3}
+    characterPrefab: {fileID: 7269954293786572760, guid: e3cfc0787baaf4316979ae4048253d15,
+      type: 3}

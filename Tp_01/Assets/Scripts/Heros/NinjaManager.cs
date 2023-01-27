@@ -10,10 +10,14 @@ public class NinjaManager : PlayerManager
     
     [SerializeField] private GameObject smokescreen;
     private float smokescreenDuration = 3f;
+    private float kunaiSpinDuration = 2f;
     
     //Needed to temporarily disable player-enemy collisions:
     private int playerLayer;
     private int enemyLayer;
+
+    //Set to true to disable Ninja automatic player orientation;
+    private bool kunaiSpinning;
     
     // Start is called before the first frame update
     private new void Start()
@@ -34,6 +38,13 @@ public class NinjaManager : PlayerManager
         base.Update();
     }
 
+    protected override void Orient() //Override so Ninja can KunaiSpin
+    {
+        if (kunaiSpinning) return;
+        transform.LookAt(orientRefPt);
+        attackDir = (orientRefPt - transform.position).normalized;
+    }
+    
     protected override void Action1() //KatanaSlice
     {
         animator.SetBool("Katana", true);
@@ -51,7 +62,14 @@ public class NinjaManager : PlayerManager
 
     protected override void Action2() //KunaiSpin
     {
-        throw new System.NotImplementedException();
+        return;
+        animator.SetBool("Kunai", true);
+        StartCoroutine(KunaiSpin());
+    }
+
+    private IEnumerator KunaiSpin()
+    {
+        yield return new WaitForSeconds(kunaiSpinDuration);
     }
     
     protected override void Action3() //Smokescreen

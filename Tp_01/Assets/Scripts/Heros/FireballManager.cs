@@ -17,6 +17,7 @@ public class FireballManager : MonoBehaviour
     private bool exploded;
     private bool explosionVisualDone;
     private float explosionRadius = 15f;
+    private float explosionDamage = 5f;
     private float moveSpeed = 5f;
 
     // Start is called before the first frame update
@@ -68,7 +69,7 @@ public class FireballManager : MonoBehaviour
             {
                 if (blasted.CompareTag("Ennemy"))
                 {
-                    blasted.SendMessage("AddDamage", 5);
+                    blasted.SendMessage("AddDamage", explosionDamage);
                 }
             }
             
