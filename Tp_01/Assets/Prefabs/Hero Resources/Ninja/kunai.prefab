@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4549307284477834}
+  - component: {fileID: 7284017014552516037}
   - component: {fileID: 33785010066144248}
   - component: {fileID: 23659708414387028}
   - component: {fileID: 95819571689864568}
   - component: {fileID: 65874735520350660}
+  - component: {fileID: 2672765722227461094}
   m_Layer: 0
-  m_Name: kunai1
+  m_Name: kunai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,11 +31,23 @@ Transform:
   m_GameObject: {fileID: 1243832787074470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16, y: 16, z: 16}
+  m_LocalScale: {x: 3.2, y: 3.2, z: 3.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7284017014552516037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243832787074470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd756613cfcaa4c949dc861632218e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &33785010066144248
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,3 +127,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.051889755, y: 0.025537286, z: 0.2422764}
   m_Center: {x: -0.0000000027939677, y: 0.0000000144355, z: 0.12077126}
+--- !u!54 &2672765722227461094
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243832787074470}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

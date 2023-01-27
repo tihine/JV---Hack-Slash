@@ -18,7 +18,7 @@ public class FireballManager : MonoBehaviour
     private bool explosionVisualDone;
     private float explosionRadius = 15f;
     private float explosionDamage = 5f;
-    private float moveSpeed = 5f;
+    private float moveSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()

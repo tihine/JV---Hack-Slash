@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class NinjaManager : PlayerManager
 {
+    public UnityEvent OnThrowKunai = new UnityEvent();
     public UnityEvent OnStartInvisibility = new UnityEvent();
     public UnityEvent OnEndInvisibility = new UnityEvent();
-    
+
+    private float katanaRange = 5f;
+    private int katanaDamage = 10;
+    private float kunaiSpinDuration = 2f;
+    private float kunaiThrowInterval = 0.25f;
+    private float kunaiSpinSpeed = 45f;
     [SerializeField] private GameObject smokescreen;
     private float smokescreenDuration = 3f;
-    private float kunaiSpinDuration = 2f;
-    
+
     //Needed to temporarily disable player-enemy collisions:
     private int playerLayer;
     private int enemyLayer;
@@ -60,23 +66,36 @@ public class NinjaManager : PlayerManager
         animator.SetBool("Katana", false);
     }
 
-    void StrikeEnemies()
+    void KatanaStrike()
     {
-        
+        if (Physics.Raycast(transform.position, attackDir, out RaycastHit hit, katanaRange))
+        {
+            hit.collider.SendMessage("AddDamage", katanaDamage);
+        }
     }
 
     protected override void Action2() //KunaiSpin
     {
-        return;
         animator.SetBool("Kunai", true);
+        Debug.Log("KunaiSpin started");
         StartCoroutine(KunaiSpin());
     }
 
     private IEnumerator KunaiSpin()
     {
-        yield return new WaitForSeconds(kunaiSpinDuration);
+        kunaiSpinning = true;
+        float throwingTime = 0f;
+        while (throwingTime < kunaiSpinDuration)
+        {
+            OnThrowKunai?.Invoke();
+            yield return new WaitForSeconds(kunaiThrowInterval);
+            throwingTime += kunaiThrowInterval;
+            transform.RotateAround(transform.position, Vector3.up, kunaiSpinSpeed);
+        }
+        kunaiSpinning = false;
+        yield return null;
     }
-    
+
     protected override void Action3() //Smokescreen
     {
         animator.SetBool("Smoke", true);
