@@ -471,7 +471,6 @@ MonoBehaviour:
   OnEndInvisibility:
     m_PersistentCalls:
       m_Calls: []
-  kunai: {fileID: 0}
   smokescreen: {fileID: 1889188235}
 --- !u!95 &4284702104733148761
 Animator:
@@ -1041,6 +1040,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 2019d9adabfd7430dab280dc0452ee09,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 2019d9adabfd7430dab280dc0452ee09,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ed175c7fed4c44ff8a61947288dd5013, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 2019d9adabfd7430dab280dc0452ee09,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6240733294840144465, guid: 2019d9adabfd7430dab280dc0452ee09,
         type: 3}

@@ -873,26 +873,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 876519941776596497, guid: e3cfc0787baaf4316979ae4048253d15,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 876519941776596497, guid: e3cfc0787baaf4316979ae4048253d15,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ed175c7fed4c44ff8a61947288dd5013, type: 2}
-    - target: {fileID: 876519941776596497, guid: e3cfc0787baaf4316979ae4048253d15,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4284702104733148761, guid: e3cfc0787baaf4316979ae4048253d15,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4357867926713778440, guid: e3cfc0787baaf4316979ae4048253d15,
         type: 3}
       propertyPath: m_AnchorMax.x

@@ -11,11 +11,12 @@ public class NinjaManager : PlayerManager
     public UnityEvent OnStartInvisibility = new UnityEvent();
     public UnityEvent OnEndInvisibility = new UnityEvent();
 
+    private float katanaRadius = 1f;
     private float katanaRange = 5f;
     private int katanaDamage = 10;
     private float kunaiSpinDuration = 2f;
-    private float kunaiThrowInterval = 0.25f;
-    private float kunaiSpinSpeed = 45f;
+    private float kunaiThrowInterval = 0.125f;
+    private float kunaiSpinSpeed = 180f;
     [SerializeField] private GameObject smokescreen;
     private float smokescreenDuration = 3f;
 
@@ -72,10 +73,11 @@ public class NinjaManager : PlayerManager
 
     void KatanaStrike()
     {
-        if (Physics.Raycast(transform.position, attackDir, out RaycastHit hit, katanaRange))
+        if (Physics.SphereCast(transform.position + new Vector3(0, 1.7f, 0), katanaRadius, attackDir, out RaycastHit hit, katanaRange))
         {
             if (hit.collider.CompareTag("Ennemy"))
             {
+                Debug.Log("Katana strike!");
                 hit.collider.SendMessage("AddDamage", katanaDamage);
             }
         }
@@ -83,7 +85,6 @@ public class NinjaManager : PlayerManager
 
     protected override void Action2() //KunaiSpin
     {
-        Debug.Log("KunaiSpin started");
         StartCoroutine(KunaiSpin());
     }
 

@@ -13,6 +13,7 @@ public class KunaiManager : MonoBehaviour
     private Collider kunaiColl;
     private int kunaiDamage = 5;
     private float moveSpeed = 10f;
+    private Vector3 throwDir;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,9 @@ public class KunaiManager : MonoBehaviour
 
         wallLayerID = LayerMask.NameToLayer("Wall");
         
+        throwDir = (transform.position - player.transform.position).normalized;
+        throwDir.y = 0;
+        transform.forward = throwDir;
         rb = GetComponent<Rigidbody>();
         kunaiColl = GetComponent<Collider>();
         Physics.IgnoreCollision(player.GetComponent<Collider>(), kunaiColl);
@@ -30,8 +34,6 @@ public class KunaiManager : MonoBehaviour
 
     void ThrowKunai()
     {
-        Vector3 throwDir = (transform.position - player.transform.position).normalized;
-        throwDir.y = 0;
         rb.velocity = moveSpeed * throwDir;
         animator.SetBool("Kunai", false);
     }
