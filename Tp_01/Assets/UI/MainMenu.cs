@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Hero's choice");
+        SceneManager.LoadScene("HeroChoice");
     }
 
     
