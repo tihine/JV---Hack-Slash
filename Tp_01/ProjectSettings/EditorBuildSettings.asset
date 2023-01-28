@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arene 3.unity
     guid: 57a94227851f6b3428aa3398bb005477
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hero's choice.unity
     guid: a9d5f12354a07af4f945090a65cc4a0b
   - enabled: 1
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIGame.unity
     guid: 327c31e3bd128404696e19406e9214b6
+  - enabled: 1
+    path: Assets/Scenes/HeroChoice.unity
+    guid: 9ed9c5b836e10154482644ccaa7ce8b2
   m_configObjects: {}
